@@ -18,6 +18,12 @@ star: true
 
 # public
 
+:::tip
+Supported version:
+
+- `default_page_size` default `50` and public setting `thumbnail_size`: `>= v3.58.0`
+:::
+
 ## GET ping检测
 
 GET /ping
@@ -55,7 +61,7 @@ GET /api/public/settings
     "audio_autoplay": "true",
     "audio_cover": "https://jsd.nn.ci/gh/alist-org/logo@main/logo.svg",
     "auto_update_index": "false",
-    "default_page_size": "30",
+    "default_page_size": "50",
     "external_previews": "{}",
     "favicon": "https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg",
     "filename_char_mapping": "{\"/\": \"|\"}",
@@ -66,7 +72,7 @@ GET /api/public/settings
     "iframe_previews": "{\n\t\"doc,docx,xls,xlsx,ppt,pptx\": {\n\t\t\"Microsoft\":\"https://view.officeapps.live.com/op/view.aspx?src=$e_url\",\n\t\t\"Google\":\"https://docs.google.com/gview?url=$e_url&embedded=true\"\n\t},\n\t\"pdf\": {\n\t\t\"PDF.js\":\"https://alist-org.github.io/pdf.js/web/viewer.html?file=$e_url\"\n\t},\n\t\"epub\": {\n\t\t\"EPUB.js\":\"https://alist-org.github.io/static/epub.js/viewer.html?url=$e_url\"\n\t}\n}",
     "logo": "https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg",
     "main_color": "#1890ff",
-    "ocr_api": "https://api.nn.ci/ocr/file/json",
+    "ocr_api": "https://api.alistgo.com/ocr/file/json",
     "package_download": "true",
     "pagination_type": "all",
     "robots_txt": "User-agent: *\nAllow: /",
@@ -76,6 +82,7 @@ GET /api/public/settings
     "sso_login_enabled": "false",
     "sso_login_platform": "",
     "version": "v3.25.1",
+    "thumbnail_size": "144",
     "video_autoplay": "true"
   }
 }
@@ -102,7 +109,7 @@ GET /api/public/settings
 | »» audio_autoplay             | string  | true | none | 自动播放音频   | none |
 | »» audio_cover                | string  | true | none | 音频封面       | none |
 | »» auto_update_index          | string  | true | none | 自动更新索引   | none |
-| »» default_page_size          | string  | true | none | 默认分页数     | none |
+| »» default_page_size          | string  | true | none | 默认分页数     | 当前默认值为 `50` |
 | »» external_previews          | string  | true | none | 外部预览       | none |
 | »» favicon                    | string  | true | none | 网站图标       | none |
 | »» filename_char_mapping      | string  | true | none |                | none |
@@ -122,5 +129,6 @@ GET /api/public/settings
 | »» site_title                 | string  | true | none | 站点标题       | none |
 | »» sso_login_enabled          | string  | true | none | 启用sso登录    | none |
 | »» sso_login_platform         | string  | true | none | sso登录平台    | none |
+| »» thumbnail_size            | string  | true | none | 缩略图尺寸     | 缩略图宽度，单位像素 |
 | »» version                    | string  | true | none | 版本           | none |
 | »» video_autoplay             | string  | true | none | 视频自动播放   | none |

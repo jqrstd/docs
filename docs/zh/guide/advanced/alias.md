@@ -62,7 +62,7 @@ star: true
 
    - `路径`填写示例：
 
-     ```path
+     ```bash title="path"
      /目录1/目录a
      /目录2/目录b
      ```
@@ -73,7 +73,7 @@ star: true
 
    - `路径`填写示例：
 
-     ```path
+     ```bash title="path"
      #示例1 直接写根文件夹
      合并显示:/目录1
      合并显示:/目录2
@@ -248,3 +248,11 @@ a/5.bin     b/6.css             alias/5.bin
 实在不懂 可以自行本地测试一下再进行生产环境实装
 
 :::
+
+<br/>
+
+
+
+### **下载并发、下载分片大小**
+
+需要开启代理才会生效，详情查看：**https://github.com/AlistGo/alist/pull/7829**

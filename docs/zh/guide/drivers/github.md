@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 40
+order: 271
 # A page can have multiple categories
 category:
   - Guide
@@ -11,6 +11,7 @@ tag:
   - Storage
   - Guide
   - "302"
+  - "官方"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -45,6 +46,36 @@ GitHub API 不支持操作 100M 或更大的文件，不支持操作含有超过
 
 分支名、tag或提交SHA，只有在填写分支名的情况下驱动才可写，不填会使用默认分支。
 
+## **Gh Proxy**
+
+用于加速下载
+
+- 下载 `Raw`、`archive` 的内容要改成 **https://gh-proxy.com/raw.githubusercontent.com**
+
+```bash title="一键复制"
+https://gh-proxy.com/raw.githubusercontent.com
+```
+
+```bash title="一键复制"
+https://ghfast.top/raw.githubusercontent.com
+```
+
+```bash title="一键复制"
+https://ghproxy.net/raw.githubusercontent.com
+```
+
+## **GPG 私钥**
+
+GPG 私钥，用于提供提交验证功能，经验证的提交会在 GitHub 网页上被标记为绿色的“Verified”，使用以下命令获取，不需要验证功能可以留空。
+
+```bash
+gpg --export-secret-key -a <密钥对ID>
+```
+
+## **GPG 私钥密码**
+
+GPG 私钥的密码，没有则留空。
+
 ## **提交者名称**
 
 自定义提交者名称，不填会使用 Token 的所有者。
@@ -65,7 +96,7 @@ GitHub API 不支持操作 100M 或更大的文件，不支持操作含有超过
 
 填写“作者名称”时必填，未填写“作者名称”时必不填。
 
-## **\*\*\*提交信息**
+## **提交信息**
 
 自定义提交信息，支持以下模板变量：
 - `UserName`: 发起操作的用户

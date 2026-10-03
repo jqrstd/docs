@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 40
+order: 271
 # A page can have multiple categories
 category:
   - Guide
@@ -45,6 +45,36 @@ The name of the repository. For example, if the URL of the repository is `github
 
 A branch, a tag or a commit SHA. Only when a branch name is filled in is the driver writable. It defaults to the default branch if not filled.
 
+## **Gh Proxy**
+
+Used to speed up downloading
+
+- Download the content of `Raw` and `archive` and change it to **https://gh-proxy.com/raw.githubusercontent.com**
+
+```bash title="Copy"
+https://gh-proxy.com/raw.githubusercontent.com
+```
+
+```bash title="Copy"
+https://ghfast.top/raw.githubusercontent.com
+```
+
+```bash title="Copy"
+https://ghproxy.net/raw.githubusercontent.com
+```
+
+## **GPG private key**
+
+GPG private key, used to provide commit verifications. Verified commits will be marked with a green "Verified" label on the GitHub webpage. Use the following command to obtain it. Leave blank if verifications are not needed.
+
+```bash
+gpg --export-secret-key -a <Key Pair ID>
+```
+
+## **GPG key passphrase**
+
+Passphrase to the GPG private key. Leave blank if there is none.
+
 ## **Committer name**
 
 Custom committer name, defaulting to the owner's of the token when not filled.
@@ -65,7 +95,7 @@ Custom author name, defaulting to the owner's of the token when not filled.
 
 Required when "Author name" is filled. Required to be empty when "Author name" is empty.
 
-## **\*\*\* commit message**
+## **commit message**
 
 Custom commit message, supporting the following template variables：
 - `UserName`: the user operating the file.

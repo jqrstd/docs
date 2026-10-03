@@ -19,28 +19,21 @@ jobs:
           # submodules: true
 
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: true
-
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: pnpm
+          node-version: 20
+          cache: npm
 
       - name: Install Deps
-        run: pnpm install --frozen-lockfile
+        run: npm install
 
       - name: Build Docs
         env:
           NODE_OPTIONS: --max_old_space_size=8192
         run: |-
-          pnpm run docs:build
-          > docs/.vuepress/dist/.nojekyll
+          npm run docs:build
+          echo "" > docs/.vuepress/dist/.nojekyll
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -49,5 +42,5 @@ jobs:
           # external_repository: alist-org/alist-org.github.io
           publish_branch: gh-pages
           publish_dir: docs/.vuepress/dist
-          cname: alist.nn.ci
+          cname: alistgo.com
 

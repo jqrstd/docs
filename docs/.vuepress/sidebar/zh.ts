@@ -4,6 +4,7 @@ export const zh = sidebar({
   "/zh/guide/": "structure",
   "/zh/config/": "structure",
   "/zh/faq/": "structure",
+  "/zh/tool/": false,
   "/zh/": [
     "",
     {
@@ -16,9 +17,7 @@ export const zh = sidebar({
       text: "配置",
       icon: "iconfont icon-config",
       prefix: "config/",
-      children: [
-        "config",
-      ],
+      children: ["", "configuration"],
     },
     {
       text: "常见问题",

@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 7
+order: 46
 # A page can have multiple categories
 category:
   - Guide
@@ -32,7 +32,7 @@ Logging in on the mobile app does not pose any issue, as it can be done simultan
 
 :::
 
-Get the token tool address：**https://alist.nn.ci/tool/wopan/token.html**
+Get the token tool address：**https://alistgo.com/tool/wopan/token.html**
 
 - ![](/img/drivers/wopan/wopan-tool.png)
 

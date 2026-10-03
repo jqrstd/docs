@@ -20,15 +20,61 @@ star: true
 
 ## **挂载路径**
 
-唯一标识，即要挂载到的位置，如果要挂载到根目录，就是 `/`
+唯一标识，对外展示的名称，要挂载到的位置，如果要挂载到根目录，就是 `/`
+
+![](/img/drivers/common/path_b.png#light)
+
+![](/img/drivers/common/path_h.png#dark)
+
+挂载路径名称重复使用
+
+```json
+Failed create storage in database: UNIQUE constraint failed: x_storages.mount_path
+```
+
+挂载路径名称没有填写
+
+```json
+Key: 'Storage.MountPath' Error:Field validation for 'MountPath' failed on the 'required' tag
+```
+
+<br/>
+
+
 
 ## **序号**
 
 当有多个账户时，用于排序，越小越靠前，可以填写负数
 
+<br/>
+
+
+
 ## **备注**
 
 随便你想填什么，只是提醒你这个存储是什么
+
+### **引用**  <Badge text="≥ 3.42.0" type="info" vertical="middle" />
+
+从 `已挂载的存储` 中引用认证、令牌等，同一个Token多个网盘使用
+
+目前仅支持如下网盘：
+
+- 中国移动云盘
+- 阿里云盘Open
+- 天翼云盘客户端
+- 123云盘分享（引用123云盘）
+- Cloudreve V3 / V4
+
+在存储设置中将`备注(Remark)`的第一行设置为：**ref:/挂载路径**
+
+- https://github.com/AlistGo/alist/pull/7805
+
+![](/img/drivers/ref_token.png)
+
+<br/>
+
+
 
 ## **启用签名**
 
@@ -38,9 +84,29 @@ star: true
 
 影响范围：`设置-->全局-->签名所有` >  `元信息目录加密` > `单驱动签名`
 
+<br/>
+
+
+
+## **禁用索引**
+
+允许用户禁用存储索引。
+
+- 例如索引选项中的`忽略索引`，启用`禁用索引`后不需要再去配置了，这样也更方便一些
+
+[alist#7730](https://github.com/AlistGo/alist/pull/7730)、[alist-web#219](https://github.com/AlistGo/alist-web/pull/219)
+
+<br/>
+
+
+
 ## **缓存过期**
 
 目录结构的缓存时间。
+
+<br/>
+
+
 
 ## **Web 代理**
 
@@ -53,6 +119,10 @@ star: true
   - 如果有302选项默认为302，如果没有302选项默认为本地代理，如果要使用代理URL请填写并且手动切换到代理URL策略
 
 两者是不同的配置
+
+<br/>
+
+
 
 ## **WebDAV 策略**
 
@@ -73,17 +143,21 @@ star: true
 title: 302重定向、代理Url、本地代理
 ---
 flowchart LR
-	E(用户操作AList调用API \n 触发相关API操作云盘 \n 云盘接收到命令开始执行)
+	E(用户操作AList调用API <br/> 触发相关API操作云盘 <br/> 云盘接收到命令开始执行)
 	A[(云盘)]
 	B(你)
 	C[代理URL]
 	D{本地代理}
 	E==>A==>E
-    A==>|直接从云盘传给你中间无任何损耗 \n 302能下载多快就有多快|B
-    A-->|云盘先发送给代理URL|C-->|再由代理URL转发给你 \n 转发给你之后,你下载的速度 \n 取决于代理Url那一端上下载传转发的速度|B
-    A-->|云盘先发送给搭建AList的设备|D-->|再由搭建AList的设备转发给你 \n 转发给你之后,你下载的速度 \n 取决于搭建AList那一端下载然后上传转发的速度|B
+    A==>|直接从云盘传给你中间无任何损耗 <br/> 302能下载多快就有多快|B
+    A-->|云盘先发送给代理URL|C-->|再由代理URL转发给你 <br/> 转发给你后,你下载的速度 <br/> 取决于代理Url那一端上下载传转发的速度|B
+    A-->|云盘先发送给搭建AList的设备|D-->|由搭建AList的设备转发给你 <br/> 转发给你之后,你下载速度 <br/> 取决于搭建AList那一端下载然后上传转发的速度|B
 
 ```
+
+<br/>
+
+
 
 ## **下载代理 URL**
 
@@ -113,6 +187,15 @@ Workers 代码可以在 https://github.com/alist-org/alist-proxy/blob/main/alist
 
 ::::
 
+### **下载代理签名** <Badge text=">= v3.56.0" type="info" vertical="middle" />
+
+控制 AList 在拼接下载代理跳转地址时，是否自动附加 `?sign=...`。
+
+- 默认开启：代理请求形如 `PROXY_URL/path?sign=...`
+- 关闭后：代理请求形如 `PROXY_URL/path`
+- 如果你的自定义代理程序依赖 `sign` 做校验，请保持开启
+- 如果代理本身位于可信环境且不做签名校验，可以关闭；但这时要自行保护好代理入口
+
 你甚至可以开发自己的代理程序，一般步骤是：
 
 - 下载时会请求 `PROXY_URL/path?sign=sign_value`
@@ -129,6 +212,10 @@ const sign = `${_sign}:${expireTimeStamp}`
 - 验证签名正确后，请求 `HOST/api/fs/link`，可以得到文件的 URL 和要携带的请求头
 - 使用信息请求和返回
 
+<br/>
+
+
+
 ## **排序相关**
 
 - 排序方式：按什么排序
@@ -137,6 +224,10 @@ const sign = `${_sign}:${expireTimeStamp}`
 :::info
 有些驱动器使用自己的排序方法，可能会有所不同。
 :::
+
+<br/>
+
+
 
 ## **提取文件夹**
 

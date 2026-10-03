@@ -1,8 +1,8 @@
 ---
 # This is the icon of the page
-icon: iconfont icon-state
+icon: fa-solid fa-x
 # This control sidebar order
-order: 10
+order: 186
 # A page can have multiple categories
 category:
   - Guide
@@ -19,21 +19,40 @@ star: true
 
 # Mediatrack
 
+**https://app.mediatrack.cn**
+
+:::tip
+Supported version:
+
+- `Device fingerprint` / `X-Device-Fingerprint` support: `>= v3.55.0`
+:::
+
 ### **Access token**
+
 You can get it in request header after logging in
 
-![token](/img/drivers/mediatrack-token.png)
+![token](/img/drivers/mediatrack/mediatrack-token.png)
 
 ### **Project id**
 Get from official website url:
 
-![Project id](/img/drivers/mediatrack-projectid.png)
+![Project id](/img/drivers/mediatrack/mediatrack-projectid.png)
 
 ### **Root folder id**
 
 Get it from the request after logging in
 
-![id](/img/drivers/mediatrack-rootid.png)
+![id](/img/drivers/mediatrack/mediatrack-rootid.png)
+
+## **Device fingerprint**
+
+Get it from the request after logging in
+
+![id](/img/drivers/mediatrack/mediatrack-device-fingerprint.jpg)
+
+- AList sends this value as the `X-Device-Fingerprint` request header.
+- It is recommended to capture `Access token` and `Device fingerprint` from the same logged-in browser session.
+- If this value is empty or stale, listing or download requests may fail even when the token itself still looks valid.
 
 
 

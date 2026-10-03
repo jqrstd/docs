@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 32
+order: 256
 # A page can have multiple categories
 category:
   - Guide
@@ -17,7 +17,7 @@ sticky: true
 # this page will appear in starred articles
 star: true
 ---
-# Alist V2/V3
+# AList V2/V3
 
 
 
@@ -34,9 +34,9 @@ star: true
 ### **根文件夹ID**
 
 - 要添加的目录的pathname，不填默认为根目录，如：
-  - [https://alist.nn.ci](https://alist.nn.ci/) -> `/`
-  - https://alist.nn.ci/a -> `/a`
-  - https://alist.nn.ci/a/b -> `/a/b`
+  - [https://alistgo.com](https://alistgo.com/) -> `/`
+  - https://alistgo.com/a -> `/a`
+  - https://alistgo.com/a/b -> `/a/b`
 
 
 

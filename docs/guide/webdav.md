@@ -20,6 +20,23 @@ star: true
 
 # WebDav
 
+::: tip
+
+<Badge text="≥ v3.42.0" type="info"/> The above versions need to open the two permissions of `Webdav Read` and `Webdav Manage` in User => Permissions
+
+- If you only read and do not modify, you only need to open `Webdav Read`
+
+
+- If you want to add, delete or modify files, you need to open `Webdav manage` permissions and also need `Make dir or upload`, `Delete`, `Rename`, `Move`, `Copy` and other permissions. You can selectively open them according to your needs.
+
+Besides, since v3.42.0, writing to WebDAV not only requires the `Webdav Manage` permission but also basic permissions such as `rename`, `delete`, and `copy`.
+
+:::
+
+<br/>
+
+
+
 ### **WebDAV config**
 
 | Name     | Value                       |
@@ -33,6 +50,10 @@ star: true
 | Password | Same as web password        |
 
 Can't fill in? [Click to view Fill in Example](#webdav-fill-in-example)
+
+<br/>
+
+
 
 ### **WebDav Support**
 
@@ -57,6 +78,10 @@ Can't fill in? [Click to view Fill in Example](#webdav-fill-in-example)
 | BaiduNetdisk     |  ✅  |    ✅    |  ✅   |   ✅   |  ✅  |  ✅  |   ✅   |
 | Quark            |  ✅  |    ✅    |  ✅   |   ✅   |  ✅  |  ✅  |   ✅   |
 | KodBox           |  ✅  |    ✅    |  ✅   |   ✅   |  ✅  |  ✅  |   ✅   |
+
+<br/>
+
+
 
 ## **Software that can be used to mount WebDav**
 

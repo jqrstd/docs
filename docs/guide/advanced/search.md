@@ -49,6 +49,7 @@ star: true
   - Daemon：If you want to use it, you can create a new daemon process in the same way as manually starting AList.
   - Download  Url：https://github.com/meilisearch/meilisearch/releases
     - `meilisearch` Docs Url：https://www.meilisearch.com/docs/learn/getting_started/installation
+    - Reference Links：https://github.com/AlistGo/alist/discussions/6830
 
 <br/>
 
@@ -100,6 +101,8 @@ Paths to be skipped during index building, one path per line, multiple lines can
    
    - /bbb network disk/ccc folder
    
+
+If you don't want to configure this, you can turn on the `disable index` option in each driver (≥3.42.0)
 
 <br/>
 
@@ -161,7 +164,7 @@ Explanation: The directory can enter up to several layers. For example, if you h
 - Alist **V2** and **v3** types of mounts cannot be built by default
 - If you are using **MySQL** as the database, it is recommended that you use **database (non-full-text search)**, [**Click to view details to see the second item**](#difference-between-different-search-indexes)
 - In the future version (**≥3.9.0 version**), V3 users can choose whether to allow others to mount your network disk and then index it :no_entry:**`Use with caution`**:no_entry:
-   - View details:  https://alist.nn.ci/config/site.html#allow-indexing
+   - View details:  https://alistgo.com/config/site.html#allow-indexing
    - Don't ask why V2 is not supported, because the V2 version is no longer maintained, so there is no follow-up
 
 - Why not directly open V2 V3 index construction: **https://github.com/alist-org/alist/discussions/2529**
@@ -184,7 +187,7 @@ After turning on the constructive index, the more the number you build, the larg
 
   1. We use commands or tools to connect to `sqlite` database, input：**`VACUUM;`**
 
-  ```sqlite
+  ```bash title="sqlite"
   VACUUM;
   ```
 

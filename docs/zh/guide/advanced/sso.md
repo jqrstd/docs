@@ -102,7 +102,7 @@ star: true
 
 来到左侧栏找到 `登录与分享`  ==填写回调参数 **`http://127.0.0.1:5234/api/auth/sso_callback`**== 
 
-```回调参数示例
+```bash title="回调参数示例"
 http://127.0.0.1:5244/api/auth/sso_callback
 ```
 
@@ -128,7 +128,7 @@ Alist 后台参数也记得写好保存，写好保存后也要回到个人资�
 
 微软回调参数：必须以"HTTPS"或"http://localhost开头 （我这里是本地测试就用了localhost）
 
-```回调参数示例
+```bash title="回调参数示例"
 http://localhost:5244/api/auth/sso_callback?method=sso_get_token
 http://localhost:5244/api/auth/sso_callback?method=get_sso_id
 ```
@@ -171,7 +171,7 @@ Alist 后台参数也记得写好保存，写好保存后也要回到个人资�
 
 - 应用类型 选择 Web 应用，名称随便写
 - 然后在 已获授权的重定向 URI 添加我们的两个回调参数
-```回调参数示例
+```bash title="回调参数示例"
 http://127.0.0.1:5244/api/auth/sso_callback?method=get_sso_id
 http://127.0.0.1:5244/api/auth/sso_callback?method=sso_get_token
 ```
@@ -242,11 +242,16 @@ Alist 后台参数也记得写好保存，写好保存后也要回到个人资�
 
 ## **单点登录自动注册为AList帐号**
 
-- ==AList 版本 > **v3.22.1** 新增功能==
+:::tip
+支持版本：
+
+- SSO 自动注册：`>= v3.22.1`
+- 自动注册用户继承当前默认角色：`>= v3.53.0`
+:::
 
 在使用单点登录注册为AList帐号前，我们需要先将AList的单点登录进行绑定，绑定方法在上面有说明
 
-- 支持上述提到的`五个`单点登录方法
+- 支持上面已配置好的单点登录方式
 
 - 如果使用`Casdoor`,请勿直接使用默认组织(**app-built-in**),因为这个组织内的用户都是全局管理员帐号
 - 除了`Casdoor`其它的只需要填写`客户端ID`和`客户端秘钥`以及下面新增的单点登录帐号注册为AList帐号的配置
@@ -267,7 +272,13 @@ Alist 后台参数也记得写好保存，写好保存后也要回到个人资�
 
 ### **<i class="fa-solid fa-circle-1" style="color: #409eff;"></i>SSO自动注册**
 
-如果我们想让SSO单点登录注册为AList帐号我们需要打开这个选项才可以使用
+如果我们想让 SSO 单点登录自动注册为 AList 帐号，需要先打开这个选项。
+
+新自动注册出来的用户会继承：
+
+- 当前的 `默认角色`
+- `SSO默认路径`
+- `SSO默认权限`
 
 <br/>
 
@@ -289,7 +300,9 @@ Alist 后台参数也记得写好保存，写好保存后也要回到个人资�
 
 相当于注册的用户默认开通哪些权限，就如下面所示的
 
-![](/img/advanced/sso-permission.png)
+![](/img/advanced/sso-permission_b.png#light)
+
+![](/img/advanced/sso-permission_h.png#dark)
 
 默认为0，不开通任何权限
 
@@ -395,10 +408,9 @@ AList单点登录绑定了钉钉，然后在  **`钉钉`**  应用内打开AList
 - `GitHub` 只需要添加一条：`http(s)://You_Url/api/auth/sso_get_token`
 - `微软`和`谷歌`两个都需要添加，可以添加多个，所以只需要新增两条就可以不用删除旧的
 
-```New
+```bash title="New"
 http(s)://You_Url/api/auth/get_sso_id
 http(s)://You_Url/api/auth/sso_get_token
 ```
 
 如果启用 SSO兼容模式 不修改则会提示 `invalid redirect url` 错误
-

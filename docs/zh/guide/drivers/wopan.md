@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 7
+order: 46
 # A page can have multiple categories
 category:
   - Guide
@@ -33,7 +33,7 @@ AList挂载联通云盘使用的是Web端
 
 :::
 
-获取令牌工具地址：**https://alist.nn.ci/tool/wopan/token.html**
+获取令牌工具地址：**https://alistgo.com/tool/wopan/token.html**
 
 - ![](/img/drivers/wopan/wopan-tool.png)
 

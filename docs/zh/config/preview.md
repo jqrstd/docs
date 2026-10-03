@@ -18,6 +18,12 @@ star: true
 
 # 预览设置
 
+:::tip
+支持版本：
+
+- 本地缩略图的全局 `Thumbnail size` 设置：`>= v3.58.0`
+:::
+
 ## **文本类型**
 
 要作为文本预览的文件扩展名，用 `,` 分隔，例如 `txt,md,go,tsx`。
@@ -37,6 +43,10 @@ star: true
 ## **代理类型**
 
 要通过程序代理下载的文件扩展名
+
+## **代理忽略头部**
+
+详情查看： **https://github.com/alist-org/alist/issues/2763**
 
 ## **外部预览**
 
@@ -99,25 +109,61 @@ interface {
 }
 ```
 
+部署和使用 `OnlyOffice` 参考：
+
+- https://github.com/AlistGo/alist/discussions/3255
+- https://github.com/AlistGo/alist/discussions/8271
+
 :::
 
 ## **音频封面**
 
 歌曲无播放封面时显示的默认封面。
 
-## **音频自动播放**
+## **自动播放音频**
 
 是否自动播放音频文件。
 
-## **视频自动播放**
+## **自动播放视频**
 
 是否自动播放视频文件。
 
-## **代理忽略头部**
+## **缩略图尺寸**
 
-详情查看： **https://github.com/alist-org/alist/issues/2763**
+缩略图宽度，单位像素，高度会按比例缩放。
 
-### **强制预览**
+- 当前默认值：`144`
+- 当前后端会把这个设置用于本地驱动生成的缩略图
+- 请输入正整数
+
+## **打开压缩包文件时默认预览**
+
+打开此选项后，默认会对压缩包格式文件进行预览(如下图所示)，会消耗一些服务器流量，但不会全部下载，如果要关闭压缩包格式首选预览，此选项关闭，首选项就是下载模式
+
+![](/img/advanced/user_read_archives_light.png#light)
+
+![](/img/advanced/user_read_archives_dark.png#dark)
+
+## **Readme 自动渲染**
+
+关闭后 `readme.md`文件的内容将不会自动渲染在文件最底部
+
+## **过滤 Readme 文件中的脚本**
+
+防止病毒脚本攻击，开启后会以文本形式显示 `readme.md` 内容，具体效果如下内容
+
+- 包含但不限于 删除线、表格、任务列表等以文本形式展示
+
+![](/img/config/readme_b.png#light)
+![](/img/config/readme_h.png#dark)
+
+
+
+<br/>
+
+-----
+
+## **强制预览**
 
 可以通过 `type` 请求参数来强制设置预览类型。
 
