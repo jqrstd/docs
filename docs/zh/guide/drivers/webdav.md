@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 35
+order: 236
 # A page can have multiple categories
 category:
   - Guide
@@ -39,7 +39,7 @@ WebDAV 根地址
 
 选择 vendor 为 sharepoint，支持国际版/世纪互联。
 
-你可以通过[这个工具](https://alist.nn.ci/tool/onedrive/webdav.html)获取 WebdAV 根地址，如果要挂载指定的目录，在后面拼接即可。
+你可以通过[这个工具](https://alistgo.com/tool/onedrive/webdav.html)获取 WebdAV 根地址，如果要挂载指定的目录，在后面拼接即可。
 
 用户名为 OneDrive 账号邮箱，密码即为 OneDrive 账号密码。
 
@@ -51,6 +51,7 @@ WebDAV 根地址
 
 ![webdav](/img/drivers/webdav/webdav_Security.png)
 
+另外一种情况是对应的账号时间太久没有操作也会提示这个问题，尝试使用从 OneDrive 网页端重新登录，会提示要求更改密码，使用更改后的密码再次尝试即可
 ### **默认使用的下载方式**
 
 

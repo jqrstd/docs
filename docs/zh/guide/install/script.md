@@ -27,7 +27,7 @@ star: true
 @tab 正式版
 **安装**
 ```bash
-curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh
+curl -fsSL "https://alistgo.com/v3.sh" -o v3.sh && bash v3.sh
 ```
 ![v3-install](/img/guide/v3-install.png)
 
@@ -41,18 +41,81 @@ curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh
 @tab 测试版
 **安装**
 ```bash
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s install
 ```
 
 **更新**
 ```bash
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s update
 ```
 
 **卸载**
 ```bash
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s uninstall
 ```
+
+@tab Windows版
+**安装**
+```bash
+iex ([System.Text.Encoding]::UTF8.GetString((iwr -useb "https://alistgo.com/alist-manager.ps1").Content))
+```
+![alist-windows-install](/img/guide/alist-windows-install.png)
+
+## 安装步骤
+
+### 1. 打开管理员终端
+- 右键点击 Windows 开始菜单
+- 选择 **"终端管理员"** 或 **"Windows PowerShell (管理员)"**
+
+### 2. 运行安装脚本
+- 在管理员终端中粘贴脚本链接
+- 按回车键执行脚本
+
+### 3. 交互式安装界面
+脚本启动后会显示交互式安装界面，包含以下选项：
+- **安装/更新 Alist**
+- **卸载 Alist**
+- **注册 Windows 系统服务**
+- **启动/停止服务**
+- **删除系统服务**
+
+**安装说明：**
+- 默认安装路径：`C:\alist`
+- 注册系统服务时，脚本会自动下载 NSSM 程序
+- 把alist的服务加入到Windows系统服务，服务注册成功后，Alist 将随 Windows 开机自动启动
+
+### 4. 服务启动与配置
+**服务自动启动后，您将看到：**
+- Alist 生成的默认账号和密码
+- Web 登录地址
+
+**修改密码方法：**
+- **方法一：** 通过 Web 界面 → 个人资料 → 修改密码
+- **方法二：** 命令行修改
+  ```cmd
+  cd C:\alist
+  .\alist admin set 新密码
+  ```
+
+### 5. 故障排除
+**如果服务未启动：**
+- 在交互界面选择选项 **6** 启动服务
+
+**重置密码：**
+```cmd
+cd C:\alist
+.\alist admin random
+```
+
+### 6. 卸载说明
+**完整卸载步骤：**
+1. 先选择选项 **5** 删除注册的 Windows 系统服务
+2. 再选择选项 **3** 卸载 Alist 程序
+3. 卸载完成后，安装路径下的所有文件将被删除
+
+> **注意：** 卸载前请确保已备份重要数据
+
+
 
 :::
 
@@ -65,21 +128,21 @@ curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall
 @tab 正式版
 ```bash
 # Install
-curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh install /root
+curl -fsSL "https://alistgo.com/v3.sh" -o v3.sh && bash v3.sh install /root
 # update
-curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh update /root
+curl -fsSL "https://alistgo.com/v3.sh" -o v3.sh && bash v3.sh update /root
 # Uninstall
-curl -fsSL "https://alist.nn.ci/v3.sh" -o v3.sh && bash v3.sh uninstall /root
+curl -fsSL "https://alistgo.com/v3.sh" -o v3.sh && bash v3.sh uninstall /root
 ```
 
 @tab 测试版
 ```bash
 # Install
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s install /root
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s install /root
 # update
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s update /root
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s update /root
 # Uninstall
-curl -fsSL "https://alist.nn.ci/beta.sh" | bash -s uninstall /root
+curl -fsSL "https://alistgo.com/beta.sh" | bash -s uninstall /root
 ```
 
 :::

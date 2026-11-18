@@ -1,8 +1,8 @@
 ---
 # This is the icon of the page
-icon: iconfont icon-state
+icon: fa-solid fa-x
 # This control sidebar order
-order: 10
+order: 186
 # A page can have multiple categories
 category:
   - Guide
@@ -19,24 +19,41 @@ star: true
 
 # 分秒帧
 
+**https://app.mediatrack.cn**
+
+:::tip
+支持版本：
+
+- `设备指纹` / `X-Device-Fingerprint` 支持：`>= v3.55.0`
+:::
+
 ## **访问令牌**
 
 登录后可以在请求头中获取
 
-![token](/img/drivers/mediatrack-token.png)
+![token](/img/drivers/mediatrack/mediatrack-token.png)
 
 ## **项目编号**
 
 从官网网址获取：
 
-![Project id](/img/drivers/mediatrack-projectid.png)
+![Project id](/img/drivers/mediatrack/mediatrack-projectid.png)
 
 ## **根文件夹 ID**
 
 登录后从请求中获取
 
-![id](/img/drivers/mediatrack-rootid.png)
+![id](/img/drivers/mediatrack/mediatrack-rootid.png)
 
+## **设备指纹**
+
+登录后从请求中获取
+
+![id](/img/drivers/mediatrack/mediatrack-device-fingerprint.jpg)
+
+- AList 会把这个值作为 `X-Device-Fingerprint` 请求头发给分秒帧。
+- 建议从同一个已登录浏览器会话里，一起抓取 `访问令牌` 和 `设备指纹`。
+- 如果这个值为空、过期或与当前会话不匹配，即使 `Access token` 还在，请求也可能无法列目录或获取下载链接。
 
 
 ### **默认使用的下载方式**

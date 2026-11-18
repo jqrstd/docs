@@ -56,7 +56,7 @@ There are two ways to fill in
 
     -Paths filling example:
 
-      ```path
+      ```bash title="path"
       /file1/locala
       /file2/localb
       ```
@@ -67,7 +67,7 @@ There are two ways to fill in
 
     -Paths filling example:
 
-      ```path
+      ```bash title="path"
       #Example 1 Directly write the root folder
       merge: /file1
       merge: /file2
@@ -240,3 +240,11 @@ a/5.bin     b/6.css             alias/5.bin
 If you really do n’t understand, you can test it yourself and then install the production environment by yourself
 
 :::
+
+<br/>
+
+
+
+### **Download concurrency、Download part size**
+
+You need to enable the proxy to take effect, for details, see:**https://github.com/AlistGo/alist/pull/7829**

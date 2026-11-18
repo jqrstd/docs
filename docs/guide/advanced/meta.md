@@ -17,7 +17,14 @@ star: true
 ---
 
 # Meta
-The configuration in the meta information is only valid for `Guest`, if you want to have the corresponding permissions for the newly created ordinary users, please go to `User`-->`User Account` to modify the relative permissions
+
+:::tip
+Supported version:
+
+- Renaming paths covered by a meta password is blocked: `>= v3.58.0`
+:::
+
+The configuration in the meta information is valid for `All Roles`, if you want to have the corresponding permissions for users, please go to `User`-->`User Account` to modify the relative permissions
 
 ### **Path**
 
@@ -31,13 +38,25 @@ The path for this meta to take effect
 Password required to access this path
 
 - Meta information password will not take effect when accessed using `WebDav`
+- Since `>= v3.58.0`, any path covered by this password cannot be renamed from the UI or via `/api/fs/rename`, `/api/fs/batch_rename`, or `/api/fs/regex_rename`
+
+::: danger Notes
+
+If you want the password to be effective in subfolders, please check `Apply to sub folder` after the password. Do not check `Write` and then check `Apply to sub folder`
+
+The correct check example is shown below. If you configure the options correctly, if you check the wrong option `Write` and then check `Apply to sub folder`, it will cause anyone to have permission to write dangerous operations
+
+![](/img/advanced/meta/password_b.png#light)
+![](/img/advanced/meta/password_h.png#dark)
+
+:::
 
 <br/>
 
 
 
 ### **Write**
-Allow guest to make directory, new file and upload files.
+Allow user to make directory, new file and upload files.
 
 <br/>
 

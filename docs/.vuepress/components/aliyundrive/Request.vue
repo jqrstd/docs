@@ -11,8 +11,8 @@ import {
 import { ref } from "vue"
 import { api } from "../api"
 
-const alist_redirect_uri = "https://alist.nn.ci/tool/aliyundrive/callback"
-const app_id = "76917ccccd4441c39457a04f6084fb2f"
+const alist_redirect_uri = "https://alistgo.com/tool/aliyundrive/callback"
+const app_id = "b8c990e60b18446eb07f5dca30398e8a"
 
 function goGet() {
   const url = new URL("https://open.aliyundrive.com/oauth/authorize")
@@ -113,7 +113,7 @@ async function haveScan() {
 <template>
   <NSpace vertical size="large">
     <NCheckbox v-model:checked="useMyOwn" size="large"
-      >Use my own client</NCheckbox
+      >使用自己的客户端信息</NCheckbox
     >
     <template v-if="useMyOwn">
       <NInput size="large" v-model:value="client_id" placeholder="client_id" />
@@ -124,7 +124,7 @@ async function haveScan() {
       />
     </template>
     <NButton size="large" type="primary" @click="goGet" block
-      >Go to login</NButton
+      >前往登录</NButton
     >
     <NButton
       size="large"
@@ -133,7 +133,7 @@ async function haveScan() {
       block
       :loading="gettingQrCode"
       :disabled="!!qrcode"
-      >Scan QrCode
+      >扫描二维码
     </NButton>
     <NAlert title="Error" type="error" v-if="qrcode?.error">
       {{ qrcode.error }}
@@ -142,8 +142,8 @@ async function haveScan() {
       <NSpace justify="center">
         <NImage width="300" :src="qrcode.qrCodeUrl" />
       </NSpace>
-      <NAlert title="Scan the QrCode" type="info"
-        >Use AliyunDrive APP To Scan Then Click the Button Below</NAlert
+      <NAlert title="扫描二维码" type="info"
+        >使用 AliyunDrive APP 扫描，然后点击下方按钮</NAlert
       >
       <NButton
         size="large"
@@ -151,7 +151,7 @@ async function haveScan() {
         type="info"
         block
         :loading="gettingScanStatus"
-        >I have scan</NButton
+        >已扫码</NButton
       >
     </NSpace>
     <NAlert

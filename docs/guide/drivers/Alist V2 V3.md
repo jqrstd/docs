@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 32
+order: 256
 # A page can have multiple categories
 category:
   - Guide
@@ -17,7 +17,7 @@ sticky: true
 # this page will appear in starred articles
 star: true
 ---
-# Alist V2/V3
+# AList V2/V3
 
 
 
@@ -34,9 +34,9 @@ First of all, you need to know whether the other party is V2 or V3.
 ### **root directory path**
 
 - The pathname of the directory to be added, if not filled, it defaults to the root directory, such as:
-   - [https://alist.nn.ci](https://alist.nn.ci/) -> `/`
-   - https://alist.nn.ci/a -> `/a`
-   - https://alist.nn.ci/a/b -> `/a/b`
+   - [https://alistgo.com](https://alistgo.com/) -> `/`
+   - https://alistgo.com/a -> `/a`
+   - https://alistgo.com/a/b -> `/a/b`
 
 
 

@@ -3,9 +3,9 @@ import { NAlert, NSpace, NSpin, NInput } from 'naive-ui';
 import { ref } from 'vue';
 import { api } from '../api';
 
-const client_id = "iYCeC9g08h5vuP9UqvPHKKSVrKFXGa1v";
-const client_secret = "jXiFMOPVPCWlO2M5CwWQzffpNPaGTRBG";
-const callback_uri = "https://alist.nn.ci/tool/baidu/callback";
+const client_id = "hq9yQ9w9kR4YHj1kyYafLygVocobh7Sf";
+const client_secret = "YH2VpZcFJHYNnV6vLfHQXDBhcE7ZChyE";
+const callback_uri = "https://alistgo.com/tool/baidu/callback";
 
 const url = new URL(window.location.href);
 const code = url.searchParams.get("code");

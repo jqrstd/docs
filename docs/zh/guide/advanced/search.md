@@ -49,6 +49,7 @@ star: true
   - 守护进程：如果要使用可以自己按照手动启动AList的办法新建一个守护进程
   - 下载地址：https://github.com/meilisearch/meilisearch/releases
     - `meilisearch`文档地址：https://www.meilisearch.com/docs/learn/getting_started/installation
+    - 参考链接：https://github.com/AlistGo/alist/discussions/6830
 
 <br/>
 
@@ -99,6 +100,8 @@ star: true
 - 例子：
   - /aaa网盘
   - /bbb网盘/ccc文件夹
+
+如果不想(不会)配置这里，可以去每个驱动中将`禁用索引`选项打开（≥3.42.0）
 
 <br/>
 
@@ -165,7 +168,7 @@ star: true
 - Alist **V2** 和 **v3** 类型的挂载默认不能构建
 - 如果你使用的是 **MySQL** 作为数据库，推荐你使用 **数据库(非全文搜索)**, [**点击查看详情看第二条**](#不同搜索索引之间的差异)
 - 在未来版本（**≥3.9.0版本**）V3用户可以选择是否允许别人挂载你的网盘然后进行索引 :no_entry:**`谨慎使用`**:no_entry:
-  - 详情查看：[https://alist.nn.ci/zh/config/site.html#允许索引](https://alist.nn.ci/zh/config/site.html#允许索引)
+  - 详情查看：[https://alistgo.com/zh/config/site.html#允许索引](https://alistgo.com/zh/config/site.html#允许索引)
   - 别问为什么V2不支持，因为V2版本已不再进行维护，故没有后续了
 
 
@@ -188,7 +191,7 @@ star: true
 
   1. 我们使用命令或者工具连接上`sqlite`数据库，输入：**`VACUUM;`**
 
-  ```sqlite
+  ```bash title="sqlite"
   VACUUM;
   ```
 

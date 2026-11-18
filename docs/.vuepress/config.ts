@@ -1,13 +1,29 @@
-import { defineUserConfig, viteBundler } from "vuepress";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
+import { defineUserConfig } from "vuepress";
+import { viteBundler } from '@vuepress/bundler-vite'
 import { getDirname, path } from "@vuepress/utils";
 import theme from "./theme.js";
 
 const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
+  theme,
   base: "/",
   head: [
+    [
+      "script",
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-9QM0DWGFXG",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9QM0DWGFXG');`,
+    ],
     [
       "script",
       {
@@ -33,15 +49,6 @@ export default defineUserConfig({
         rel: "stylesheet"
       }
     ],
-    // [
-    //   "script",
-    //   {
-    //     type: "text/javascript",
-    //     charset: "UTF-8",
-    //     src: "/global.js",
-    //     async: true,
-    //   },
-    // ],
     [
       "script",
       {},
@@ -53,7 +60,7 @@ export default defineUserConfig({
       `var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?6c8a68035d2804b5cfeafe6d96df4c75";
+        hm.src = "https://hm.baidu.com/hm.js?d5fb1cfe9d7593407463111c8fd17ca3";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();`,
@@ -85,19 +92,13 @@ export default defineUserConfig({
       level: [2, 3, 4, 5, 6]
     }
   },
-  
-  theme,
   plugins: [
-    docsearchPlugin({
-      appId: "ECAR405NMH",
-      apiKey: "ef408b6afab61e0362a93af95ad18150",
-      indexName: "alist",
-    }),
+
   ],
   bundler: viteBundler({
     viteOptions: {
       ssr: {
-        noExternal: ["naive-ui"],
+        noExternal: ["naive-ui", "vueuc"],
       },
     },
   }),
@@ -151,9 +152,19 @@ export default defineUserConfig({
       __dirname,
       "./components/aliyundrive/Callback.vue"
     ),
+    "@123Pan/Callback": path.resolve(
+      __dirname,
+      "./components/123pan/Callback.vue"
+    ),
+    "@123Pan/Request": path.resolve(
+      __dirname,
+      "./components/123pan/Request.vue"
+    ),
     "@Wopan/Token": path.resolve(__dirname, "./components/wopan/Token.vue"),
     "@Pricing": path.resolve(__dirname, "./components/Pricing.vue"),
     "@Desktop": path.resolve(__dirname, "./components/Desktop.vue"),
+    "@DownloadLink": path.resolve(__dirname, "./components/DownloadLink.vue"),
+    "@VersionProvider": path.resolve(__dirname, "./components/VersionProvider.vue"),
     "@Changelog": path.resolve(__dirname, "./components/changelog/index.vue"),
     "@Api": path.resolve(__dirname, "./components/api/index.ts"),
     "@Dropbox/Request": path.resolve(
@@ -164,5 +175,6 @@ export default defineUserConfig({
       __dirname,
       "./components/dropbox/Callback.vue"
     ),
+    "@115/Token": path.resolve(__dirname, "./components/115/Token.vue"),
   },
 });

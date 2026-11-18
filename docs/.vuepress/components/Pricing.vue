@@ -1,6 +1,12 @@
 <script lang="ts" setup>
-import { NButton, NCard, NGrid, NGridItem, NH1, NIcon, NSpace, NText } from "naive-ui";
+import { NButton, NCard, NGrid, NGridItem, NH1, NIcon, NSpace, NText, NModal } from "naive-ui";
 import Check from './icon/Check.vue'
+import { ref } from 'vue'
+
+const showContactModal = ref(false)
+
+const qrCode = ref('https://oss.hutool.cn/000000-hutool/upload/alist/qi%20ye.jpg')
+
 let data = {
   pricing: [
     {
@@ -17,18 +23,18 @@ let data = {
       btns: [{
         text: 'Download',
         link: 'https://github.com/alist-org/alist/releases'
-      },
-      {
-        text: "Sponsor",
-        link: "/guide/sponsor.html",
-        secondary: false,
-        type: "error"
       }
+        // ,{
+        //   text: "Sponsor",
+        //   link: "/guide/sponsor.html",
+        //   secondary: false,
+        //   type: "error"
+        // }
       ]
     },
     {
       title: 'AList Desktop',
-      price: '＄9.99',
+      price: '￥39.99',
       features: [
         'All Open Source features',
         'Use a nice UI to manage the Alist program instead of the command line, and easily view logs',
@@ -41,14 +47,14 @@ let data = {
       ],
       btns: [
         {
-          text: 'Download',
-          link: 'https://github.com/alist-org/desktop-release/releases',
-        },
-        {
-          text: 'Buy',
-          link: 'https://store.nn.ci/checkout/buy/51dca247-20df-4991-8104-54ca534bcc82',
-          type: 'success'
+          text: 'Buy now',
+          link: 'https://desktop.alistgo.com/zh',
         }
+        // ,{
+        //   text: 'Buy',
+        //   link: 'https://store.nn.ci/checkout/buy/51dca247-20df-4991-8104-54ca534bcc82',
+        //   type: 'success'
+        // }
       ]
     },
     {
@@ -88,16 +94,18 @@ if (location.pathname.startsWith("/zh/")) {
         btns: [{
           text: '下载',
           link: 'https://github.com/alist-org/alist/releases',
-        }, {
-          text: "赞助",
-          link: "/zh/guide/sponsor.html",
-          secondary: false,
-          type: "error"
-        }]
+        }
+          // , {
+          //   text: "赞助",
+          //   link: "/zh/guide/sponsor.html",
+          //   secondary: false,
+          //   type: "error"
+          // }
+        ]
       },
       {
         title: 'AList桌面版',
-        price: '￥50',
+        price: '￥39.99',
         features: [
           '所有开源功能',
           '使用好看的UI管理AList程序而不是命令行，方便的查看日志',
@@ -110,14 +118,14 @@ if (location.pathname.startsWith("/zh/")) {
         ],
         btns: [
           {
-            text: '下载',
-            link: 'https://github.com/alist-org/desktop-release/releases',
-          },
-          {
-            text: '购买',
-            link: 'https://r.nn.ci/ad',
-            type: 'success'
+            text: '现在购买',
+            link: 'https://desktop.alistgo.com/zh',
           }
+          // ,{
+          //   text: '购买',
+          //   link: 'https://r.nn.ci/ad',
+          //   type: 'success'
+          // }
         ]
       },
       {
@@ -132,7 +140,7 @@ if (location.pathname.startsWith("/zh/")) {
         ],
         btns: [{
           text: '联系',
-          link: 'mailto:i@nn.ci'
+          link: 'mailto:i@nn.ci',
         }]
       }
     ],
@@ -140,7 +148,11 @@ if (location.pathname.startsWith("/zh/")) {
 }
 
 function openLink(link: string) {
-  window.open(link, "_blank");
+  if (link === 'mailto:i@nn.ci') {
+    showContactModal.value = true
+  } else {
+    window.open(link, "_blank");
+  }
 }
 
 </script>
@@ -165,9 +177,30 @@ function openLink(link: string) {
       </NCard>
     </NGridItem>
   </NGrid>
+
+  <NModal v-model:show="showContactModal" preset="dialog" title="联系我们">
+    <template #default>
+      <p>请通过以下二维码联系我们：</p>
+      <div class="qr-code">
+        <img
+          :src="qrCode"
+          alt="联系我们" style="width: 300px; height: 350px;">
+      </div>
+      <!-- <p>邮箱：i@nn.ci</p> -->
+    </template>
+    <template #action>
+      <NButton @click="showContactModal = false">关闭</NButton>
+    </template>
+  </NModal>
 </template>
 
 <style scoped>
+.qr-code {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .list {
   min-height: 334px;
 }

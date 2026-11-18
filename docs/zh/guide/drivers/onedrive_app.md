@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 5
+order: 31
 # A page can have multiple categories
 category:
   - Guide
@@ -84,7 +84,7 @@ star: true
 
 API授权后，我们去授权组织应用
 
-- 左侧侧边栏 ---> 企业应用程序 ---> 所有应用程序 ---> **{选择我们开始新建的哪个应用名称}** ---> 权限 ---> 点击 代表`xxxx`授予管理员同意
+- 左侧侧边栏 ---> 企业应用程序 ---> 所有应用程序 ---> **{选择我们开始新建的那个应用名称}** ---> 权限 ---> 点击 代表`xxxx`授予管理员同意
 
 ![onedriveapp](/img/drivers/onedrive_app/onedrive_app5.png)
 

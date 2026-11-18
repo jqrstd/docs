@@ -101,7 +101,7 @@ Click on the new application and we will see the application credentials option,
 
 Go to the left column and find `Login and Share` ==Fill in the callback parameters **`http://127.0.0.1:5234/api/auth/sso_callback`**==
 
-```Callback parameter example
+```bash title="Callback" parameter example
 http://127.0.0.1:5244/api/auth/sso_callback
 ```
 
@@ -131,7 +131,7 @@ Account type must be selected: **Account in any organizational directory (any Az
 
 Microsoft callback parameters: must start with "HTTPS" or "http://localhost (I used localhost here for local testing)
 
-```Callback parameter example
+```bash title="Callback" parameter example
 http://localhost:5244/api/auth/sso_callback?method=sso_get_token
 http://localhost:5244/api/auth/sso_callback?method=get_sso_id
 ```
@@ -175,7 +175,7 @@ If you want to use Google to log in, you first need the machine you built Alist 
 - Application Type Select Web Application, and write the name as you like
 - Then add our two callback parameters in the authorized redirect URI
 
-```Callback parameter example
+```bash title="Callback" parameter example
 http://127.0.0.1:5244/api/auth/sso_callback?method=get_sso_id
 http://127.0.0.1:5244/api/auth/sso_callback?method=sso_get_token
 ```
@@ -252,11 +252,11 @@ In addition to the four that `AList` has already connected to `GitHub Dingding G
   4. Select your authorization flow. The built-in `default-provider-authorization-implicit-consent` is acceptable
   5. Make note of the `Client ID` and `Client Secret` fields as provided by Authentik - save these values for later
   6. For Redirect UDIs/Origins, enter the following, replacing [your.alist.domain] with the FQDN for your AList installation:
-```Callback parameters
+```bash title="Callback" parameters
 https://your.alist.domain/api/auth/sso_callback\?method=sso_get_token
 https://your.alist.domain/api/auth/sso_callback\?method=get_sso_id
 ```
-    
+
     Please note the \ character before ? as an escape character for the regex used for this URI is mandatory.
   7. Make note of the signing key selected as you will need it later. This guide assumes you will use the default `authentik Self-signed Certificate`
   8. Save the new provider
@@ -294,11 +294,16 @@ https://your.alist.domain/api/auth/sso_callback\?method=get_sso_id
 
 ## **SSO automatically registers as an AList account**
 
-- ==AList Version > **v3.22.1** New Features==
+:::tip
+Supported version:
+
+- SSO auto register: `>= v3.22.1`
+- Auto-registered users inherit the current default role: `>= v3.53.0`
+:::
 
 Before using single sign-on to register as an AList account, we need to bind the single sign-on of AList first, the binding method is explained above
 
-- Supports the `five` single sign-on methods mentioned above
+- Supports the SSO methods configured above
 
 - Do not use the default organization (**app-built-in**) directly, because all users in this organization are global administrator accounts
 - Except `CASDOOR`, you only need to fill in the` Client id` and the `Client secrets`and the newly added single login account registered as Alist account configuration
@@ -319,7 +324,13 @@ Please refer to the detailed description below for how to fill in, the schematic
 
 ### **<i class="fa-solid fa-circle-1" style="color: #409eff;"></i>SSO auto register**
 
-If we want SSO single sign-on to be registered as an AList account, we need to enable this option before it can be used
+If we want SSO single sign-on to be registered as an AList account, we need to enable this option before it can be used.
+
+Newly auto-registered users inherit:
+
+- the current `default role`
+- `SSO default dir`
+- `SSO default permission`
 
 <br/>
 
@@ -341,7 +352,9 @@ It can be the root directory `/`, or the path `/path/test/Demo` specified by the
 
 It is equivalent to which permissions are enabled by default for registered users, as shown below
 
-![](/img/advanced/sso-permission.png)
+![](/img/advanced/sso-permission_b.png#light)
+
+![](/img/advanced/sso-permission_h.png#dark)
 
 The default is 0, no permission is enabled
 
@@ -447,10 +460,9 @@ After turning on **`Sso compatibility mode`** Then you need to log in to the cor
 - `GitHub` only needs to add one：`http(s)://You_Url/api/auth/sso_get_token`
 - `Microsoft` and` Google` both need to be added, you can add multiple Redirect urls, so you only need to add two Redirect URLs.
 
-```New
+```bash title="New"
 http(s)://You_Url/api/auth/get_sso_id
 http(s)://You_Url/api/auth/sso_get_token
 ```
 
 If you enable the **Sso compatibility mode** if you do not modify it, you will prompt `Invalid Redirect URL` Error
-

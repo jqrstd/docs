@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 3
+order: 11
 # A page can have multiple categories
 category:
   - Guide
@@ -11,6 +11,7 @@ tag:
   - Storage
   - Guide
   - "302"
+  - "官方"
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -83,13 +84,13 @@ typeof fetch !== "undefined" && getLimit()
 
 :::danger 关于阿里云open的OAuth验证API无法连接
 
-1.  由于原api `https://api.nn.ci`被sni阻断，导致国内无法连接的情况，故提供两个新的api供使用：
-    - `https://api-cf.nn.ci` (套了一层cloudflare)
-    - `https://api.xhofe.top` (辽宁多线， 由[亚洲云](https://www.asiayun.com/aff/QQCOOQKZ)赞助)
+1.  由于原api `https://api.nn.ci`被阻断，导致无法连接的情况，故提供新的api供使用：
+    - `https://api.alistgo.com`
+    <!-- - `https://api.xhofe.top` (辽宁多线， 由[亚洲云](https://www.asiayun.com/aff/QQCOOQKZ)赞助) -->
 2.  需要将`aliyundrive_open`后台配置中的`Oauth令牌链接`更换为
-    - `https://api-cf.nn.ci/alist/ali_open/token`
-    - `https://api.xhofe.top/alist/ali_open/token`
-    - ![](/img/drivers/aliyun/aliyun_api.png)
+    - `https://api.alistgo.com/alist/ali_open/token`
+    <!-- - `https://api.xhofe.top/alist/ali_open/token` -->
+    - ![](/img/drivers/aliyun/new_aliyun_api.png)
 
 3.  查看详情：https://github.com/alist-org/alist/discussions/4572
 
@@ -104,7 +105,7 @@ typeof fetch !== "undefined" && getLimit()
 
 ## **刷新令牌**
 
-前往：**https://alist.nn.ci/tool/aliyundrive/request**
+前往：[**获取刷新 Token**](https://alistgo.com/zh/tool/aliyundrive/request?cachebust=20260809)
 
 
 

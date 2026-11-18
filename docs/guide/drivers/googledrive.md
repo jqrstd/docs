@@ -2,7 +2,7 @@
 # This is the icon of the page
 icon: iconfont icon-state
 # This control sidebar order
-order: 14
+order: 111
 # A page can have multiple categories
 category:
   - Guide
@@ -11,6 +11,7 @@ tag:
   - Storage
   - Guide
   - "Native Rroxy"
+  - Official
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
@@ -21,7 +22,7 @@ star: true
 
 Support team disk
 ### **Get client_id, client_secret, refresh_token**
-Refer to https://alist.nn.ci/tool/google/request
+Refer to https://alistgo.com/tool/google/request
 
 ### **Root directory file_id**
 Similar to Aliyundrive, the last string of the official website URL, such as:
@@ -54,7 +55,7 @@ As in the example above, all **paths must be absolute**, and the SA file name mu
 
 
 
-**First open https://alist.nn.ci/tool/google/request `1. First click Use own client and then create client (Create client)`**
+**First open https://alistgo.com/tool/google/request `1. First click Use own client and then create client (Create client)`**
 
 ![Google](/img/drivers/google/Google-0.png)
 
@@ -78,7 +79,7 @@ If it is the first creation, there should be **` ❗If you need to create an OAu
 
  ==Look at the next picture for the configuration tutorial== , come back to see this picture after configuration~
 
-Callback parameter URL: **https://alist.nn.ci/tool/google/callback**
+Callback parameter URL: **https://alistgo.com/tool/google/callback**
 
 ![Google](/img/drivers/google/Google-4-1.png)
 
@@ -92,7 +93,7 @@ After we create **`OAuth Client ID`**, click on the **`OAuth Client ID`** we jus
 
 After getting `Client ID` and `Client Secret`
 
-Let's go back to the beginning **https://alist.nn.ci/tool/google/request** and fill in `Client ID` and `Client Secret`
+Let's go back to the beginning **https://alistgo.com/tool/google/request** and fill in `Client ID` and `Client Secret`
 
  ==Remember to check the option behind **Cloud Disk** and **Album** when obtaining authorization==
 
